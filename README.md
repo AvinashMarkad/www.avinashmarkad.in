@@ -3,7 +3,7 @@
 [![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fwww.avinashmarkad.com&up_message=online&up_color=success&style=flat-square)](https://www.avinashmarkad.com)
 [![Developer](https://img.shields.io/badge/Developer-Avinash%20Markad-blue?style=flat-square&logo=github)](https://github.com/avinashmarkad)
 
-> The official source code for my personal portfolio website: **[avinashmarkad.com](https://www.avinashmarkad.com)**
+> The official source code for my personal portfolio website: **[avinashmarkad.in](https://www.avinashmarkad.in)**
 
 This repository contains the source code for my interactive developer portfolio. As an AI-focused Software Engineer and Full Stack Developer, I designed this site to showcase my expertise in building scalable applications, LLM-based systems, and multi-agent workflows. 
 
@@ -60,3 +60,4 @@ cd portfolio
 open index.html 
 
 # Or simply double-click index.html in your file explorer
+

@@ -39,14 +39,42 @@
 
     <style>
         :root {
-            --bg-color: #ffffff;
+            --bg-color: #fbfbfd;
             --secondary-bg: #f5f5f7;
             --text-primary: #1d1d1f;
-            --text-secondary: #86868b;
-            --accent: #0071e3;
-            --glass: rgba(255, 255, 255, 0.72);
-            --border: rgba(0, 0, 0, 0.1);
-            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text-secondary: #48484a;
+            
+            /* Section-specific Aesthetic Accents */
+            --hero-accent: #0071e3;    /* Blue */
+            --about-accent: #ff3b30;   /* Red */
+            --skills-accent: #34c759;  /* Green */
+            --exp-accent: #af52de;     /* Purple */
+            --proj-accent: #ff9500;    /* Orange */
+            --edu-accent: #5ac8fa;     /* Azure */
+            --contact-accent: #5e5ce6; /* Indigo */
+
+            --accent: #5e5ce6; 
+            --accent-light: #bf5af2; 
+            --accent-teal: #64d2ff; 
+            --accent-gradient: linear-gradient(135deg, #5e5ce6 0%, #bf5af2 100%);
+            --glass: rgba(255, 255, 255, 0.8);
+            --border: rgba(0, 0, 0, 0.08);
+            --font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            --hover-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes blob {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
         }
 
         * {
@@ -54,6 +82,7 @@
             padding: 0;
             box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         html {
@@ -68,22 +97,33 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
-        .bg-gradient {
+        /* High-End Aesthetic Background */
+        .bg-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 50% 50%, rgba(0, 113, 227, 0.03) 0%, rgba(255, 255, 255, 0) 50%);
-            animation: pulse 10s infinite alternate;
+            overflow: hidden;
+            background: #fff;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(1.2); opacity: 0.8; }
+        .blob {
+            position: absolute;
+            width: 70vw;
+            height: 70vw;
+            filter: blur(140px);
+            animation: blob 30s infinite alternate ease-in-out;
+            pointer-events: none;
+            opacity: 0.2;
         }
+
+        .blob-1 { top: -10%; left: -10%; background: radial-gradient(circle, var(--hero-accent) 0%, transparent 70%); }
+        .blob-2 { bottom: 0%; right: -5%; background: radial-gradient(circle, var(--exp-accent) 0%, transparent 70%); animation-delay: -5s; }
+        .blob-3 { top: 30%; left: 15%; background: radial-gradient(circle, var(--skills-accent) 0%, transparent 70%); animation-delay: -10s; }
+        .blob-4 { bottom: 20%; left: 5%; background: radial-gradient(circle, var(--proj-accent) 0%, transparent 70%); animation-delay: -15s; }
+        .blob-5 { top: 50%; right: 10%; background: radial-gradient(circle, var(--edu-accent) 0%, transparent 70%); animation-delay: -20s; }
 
         /* Navigation */
         nav {
@@ -218,19 +258,43 @@
         }
 
         .hero-title {
-            font-size: clamp(40px, 8vw, 80px);
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            line-height: 1.05;
-            margin-bottom: 10px;
+            font-size: clamp(45px, 10vw, 90px);
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 1.0;
+            margin-bottom: 20px;
+            animation: float 8s ease-in-out infinite;
+            background: linear-gradient(135deg, #1d1d1f 0%, #434343 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-subtitle {
-            font-size: clamp(18px, 3vw, 28px);
+            font-size: clamp(20px, 4vw, 32px);
             font-weight: 600;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-            height: 40px;
+            margin-bottom: 50px;
+            height: 45px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* High quality button hover effects */
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(0, 118, 255, 0.39);
+        }
+
+        .btn-primary:hover {
+            background: rgba(0, 118, 255, 0.9);
+            box-shadow: 0 6px 20px rgba(0, 118, 255, 0.23);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:hover {
+            color: #0077ed;
+            transform: translateX(4px);
         }
 
         .hero-cta {
@@ -278,10 +342,20 @@
         /* About Section */
         .section-header {
             font-size: clamp(32px, 5vw, 48px);
-            font-weight: 700;
-            letter-spacing: -0.03em;
+            font-weight: 800;
+            letter-spacing: -0.04em;
             margin-bottom: 40px;
+            background: linear-gradient(to right, var(--text-primary) 30%, #666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
+        #about .section-header { background: linear-gradient(135deg, var(--text-primary), var(--about-accent)); -webkit-background-clip: text; }
+        #skills .section-header { background: linear-gradient(135deg, var(--text-primary), var(--skills-accent)); -webkit-background-clip: text; }
+        #experience .section-header { background: linear-gradient(135deg, var(--text-primary), var(--exp-accent)); -webkit-background-clip: text; }
+        #projects .section-header { background: linear-gradient(135deg, var(--text-primary), var(--proj-accent)); -webkit-background-clip: text; }
+        #education .section-header { background: linear-gradient(135deg, var(--text-primary), var(--edu-accent)); -webkit-background-clip: text; }
+        #contact .section-header { background: linear-gradient(135deg, var(--text-primary), var(--contact-accent)); -webkit-background-clip: text; }
 
         .about-text {
             font-size: clamp(18px, 2.5vw, 24px);
@@ -305,21 +379,32 @@
             border-radius: 20px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             border: 1px solid var(--border);
-            transition: transform 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
+        .skill-group:nth-child(1) { border-top: 3px solid var(--hero-accent); }
+        .skill-group:nth-child(2) { border-top: 3px solid var(--skills-accent); }
+        .skill-group:nth-child(3) { border-top: 3px solid var(--exp-accent); }
+        .skill-group:nth-child(4) { border-top: 3px solid var(--proj-accent); }
+
         .skill-group:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
         }
 
         .skill-category {
             font-size: 14px;
-            color: var(--accent);
+            color: var(--text-primary);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 16px;
             font-weight: 700;
+            opacity: 0.8;
         }
+
+        .skill-group:nth-child(1) .skill-category { color: var(--hero-accent); }
+        .skill-group:nth-child(2) .skill-category { color: var(--skills-accent); }
+        .skill-group:nth-child(3) .skill-category { color: var(--exp-accent); }
+        .skill-group:nth-child(4) .skill-category { color: var(--proj-accent); }
 
         .skill-badges {
             display: flex;
@@ -341,18 +426,44 @@
 
         .skill-badge:hover {
             background: #fff;
-            border-color: var(--accent);
+            border-color: var(--accent-light);
             color: var(--accent);
-            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.1);
-            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(94, 92, 230, 0.15);
+            transform: translateY(-6px) scale(1.1);
         }
 
-        /* Experience & Education */
+        /* Hero Text Gradient Effect */
+        .hero-title {
+            background: linear-gradient(to bottom, #1d1d1f 0%, #424245 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glassmorphism for Cards */
+        .skill-group, .project-card {
+            background: rgba(255, 255, 255, 0.6) !important;
+            backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: var(--card-shadow);
+        }
+
+        .project-card:hover {
+            box-shadow: var(--hover-shadow) !important;
+            transform: translateY(-12px) scale(1.01) !important;
+            background: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        /* Timeline Polish */
         .timeline-item {
-            border-left: 2px solid var(--secondary-bg);
+            border-left: 2px solid #e5e5e7;
             padding-left: 30px;
             position: relative;
             margin-bottom: 40px;
+            transition: border-color 0.4s;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--accent);
         }
 
         .timeline-item::before {
@@ -398,12 +509,21 @@
             transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
             display: flex;
             flex-direction: column;
+            border-left: 5px solid transparent;
         }
+
+        .project-card:nth-child(3n+1) { border-left-color: var(--proj-accent); }
+        .project-card:nth-child(3n+2) { border-left-color: var(--exp-accent); }
+        .project-card:nth-child(3n+3) { border-left-color: var(--edu-accent); }
 
         .project-card:hover {
             box-shadow: 0 20px 40px rgba(0,0,0,0.05);
             transform: translateY(-10px);
         }
+
+        .project-card:nth-child(3n+1) h3 { color: var(--proj-accent); }
+        .project-card:nth-child(3n+2) h3 { color: var(--exp-accent); }
+        .project-card:nth-child(3n+3) h3 { color: var(--edu-accent); }
 
         .project-info {
             padding: 30px;
@@ -489,7 +609,13 @@
 </head>
 <body>
 
-    <div class="bg-gradient"></div>
+    <div class="bg-canvas">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+        <div class="blob blob-5"></div>
+    </div>
 
     <nav>
         <div class="nav-content">
@@ -549,7 +675,7 @@
                 <div class="skill-badges">
                     <span class="skill-badge">Python</span>
                     <span class="skill-badge">Django</span>
-                    <span class="skill-badge">Firebase</span>
+                    <span class="skill-badge">FastAPI</span>
                     <span class="skill-badge">PostgreSQL</span>
                 </div>
             </div>
@@ -591,9 +717,70 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- AI Agentic Systems Section -->
+    <section id="ai-projects" class="reveal">
+        <h2 class="section-header">AI & Agentic Systems.</h2>
+        <div class="projects-container">
+            <!-- AI Project 1 -->
+            <div class="project-card" style="border-left-color: var(--hero-accent);">
+                <div class="project-info">
+                    <h3 style="color: var(--hero-accent);">Multi-Agent Tweet Optimization</h3>
+                    <div class="project-tech">
+                        <span class="tech-badge">LangGraph</span>
+                        <span class="tech-badge">FastAPI</span>
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Python</span>
+                    </div>
+                    <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--border);">
+                    <ul style="list-style: none; padding: 0; font-size: 14px; color: var(--text-secondary);">
+                        <li style="margin-bottom: 8px;">• LLM-driven system using generator–evaluator–optimizer workflow</li>
+                        <li style="margin-bottom: 8px;">• Designed multiple agents with independent memory for refinement</li>
+                        <li>• Implemented conditional routing and iteration limits for safety</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- AI Project 2 -->
+            <div class="project-card" style="border-left-color: var(--skills-accent);">
+                <div class="project-info">
+                    <h3 style="color: var(--skills-accent);">Domain-Specific Advisory System</h3>
+                    <div class="project-tech">
+                        <span class="tech-badge">LangGraph</span>
+                        <span class="tech-badge">LangChain</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">LLMs</span>
+                    </div>
+                    <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--border);">
+                    <ul style="list-style: none; padding: 0; font-size: 14px; color: var(--text-secondary);">
+                        <li style="margin-bottom: 8px;">• Multi-agent chat for cattle and buffalo farming assistance</li>
+                        <li style="margin-bottom: 8px;">• Designed specialized agents with isolated memory</li>
+                        <li>• Dynamic query routing using LangGraph orchestration</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- AI Project 3 -->
+            <div class="project-card" style="border-left-color: var(--exp-accent);">
+                <div class="project-info">
+                    <h3 style="color: var(--exp-accent);">AI Essay Review & Feedback</h3>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">LangChain</span>
+                        <span class="tech-badge">FastAPI</span>
+                        <span class="tech-badge">LLMs</span>
+                    </div>
+                    <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--border);">
+                    <ul style="list-style: none; padding: 0; font-size: 14px; color: var(--text-secondary);">
+                        <li style="margin-bottom: 8px;">• Evaluates essays for grammar, clarity, and coherence</li>
+                        <li style="margin-bottom: 8px;">• Implemented iterative feedback refinement loops</li>
+                        <li>• Maintained session-level memory for essay versions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web Projects Section -->
     <section id="projects" class="reveal">
-        <h2 class="section-header">Projects.</h2>
+        <h2 class="section-header">Web & ML Projects.</h2>
         <div class="projects-container">
             <!-- Project 1 -->
             <div class="project-card">
@@ -721,6 +908,23 @@
     </footer>
 
     <script>
+        // Modern Scroll Observer for high-quality revealing
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    if (entry.target.classList.contains('skill-group')) {
+                        entry.target.style.transitionDelay = `${Math.random() * 0.2}s`;
+                    }
+                }
+            });
+        }, observerOptions);
+
         // Typing Animation
         const typingText = document.getElementById('typing-text');
         const phrases = ["AI-Focused Software Engineer", "Full Stack Developer", "LangGraph Specialist"];
@@ -752,17 +956,10 @@
             setTimeout(type, typeSpeed);
         }
 
-        // Scroll Reveal
-        function reveal() {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(element => {
-                const windowHeight = window.innerHeight;
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    element.classList.add('active');
-                }
-            });
+        // Updated Reveal initialization
+        function initReveals() {
+            const reveals = document.querySelectorAll('.reveal, .skill-group, .project-card');
+            reveals.forEach(el => observer.observe(el));
         }
 
         // Mobile Menu Toggle
@@ -785,10 +982,9 @@
         });
 
         // Initialize
-        window.addEventListener('scroll', reveal);
         window.onload = () => {
             type();
-            reveal();
+            initReveals();
         };
     </script>
 </body>

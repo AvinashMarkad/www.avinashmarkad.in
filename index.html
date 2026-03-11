@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- SEO Meta Tags -->
     <title>Avinash Markad | AI Engineer & Full Stack Developer Portfolio</title>
-    <meta name="description"
-        content="Avinash Markad is an AI-focused software engineer and full stack developer specializing in LLM systems, LangGraph multi-agent workflows, MERN stack development, and scalable AI applications.">
-    <meta name="keywords"
-        content="Avinash Markad, Avinash Markad developer, Avinash Markad AI engineer, Avinash Markad portfolio, Avinash Markad full stack developer, Avinash Markad Python developer, Avinash Markad MERN developer, Avinash Markad LangGraph developer, Avinash Markad GitHub">
+    <meta name="description" content="Avinash Markad is an AI-focused software engineer and full stack developer specializing in LLM systems, LangGraph multi-agent workflows, MERN stack development, and scalable AI applications.">
+    <meta name="keywords" content="Avinash Markad, Avinash Markad developer, Avinash Markad AI engineer, Avinash Markad portfolio, Avinash Markad full stack developer, Avinash Markad Python developer, Avinash Markad MERN developer, Avinash Markad LangGraph developer, Avinash Markad GitHub">
     <link rel="canonical" href="https://www.avinashmarkad.com">
-
+    
     <!-- Open Graph -->
     <meta property="og:title" content="Avinash Markad | AI Engineer Portfolio">
     <meta property="og:description" content="Personal portfolio of AI engineer and full stack developer Avinash Markad">
     <meta property="og:url" content="https://www.avinashmarkad.com">
     <meta property="og:type" content="website">
-
+    
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-
+    
     <!-- Schema.org Person Markup -->
     <script type="application/ld+json">
     {
@@ -84,15 +81,8 @@
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-
-            100% {
-                transform: scale(1.2);
-                opacity: 0.8;
-            }
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0.8; }
         }
 
         /* Navigation */
@@ -193,17 +183,9 @@
                 opacity: 1;
             }
 
-            .menu-toggle.active .bar:nth-child(1) {
-                transform: translateY(6px) rotate(45deg);
-            }
-
-            .menu-toggle.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-
-            .menu-toggle.active .bar:nth-child(3) {
-                transform: translateY(-6px) rotate(-45deg);
-            }
+            .menu-toggle.active .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+            .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+            .menu-toggle.active .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
         }
 
         /* Layout */
@@ -263,10 +245,7 @@
                 width: 100%;
                 max-width: 250px;
             }
-
-            .btn {
-                text-align: center;
-            }
+            .btn { text-align: center; }
         }
 
         .btn {
@@ -324,7 +303,7 @@
             background: #fff;
             padding: 24px;
             border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             border: 1px solid var(--border);
             transition: transform 0.3s ease;
         }
@@ -422,7 +401,7 @@
         }
 
         .project-card:hover {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
             transform: translateY(-10px);
         }
 
@@ -459,8 +438,7 @@
             gap: 15px;
         }
 
-        .input-group input,
-        .input-group textarea {
+        .input-group input, .input-group textarea {
             width: 100%;
             padding: 16px;
             border-radius: 12px;
@@ -472,8 +450,7 @@
             transition: border-color 0.3s;
         }
 
-        .input-group input:focus,
-        .input-group textarea:focus {
+        .input-group input:focus, .input-group textarea:focus {
             border-color: var(--accent);
         }
 
@@ -497,48 +474,23 @@
 
         /* Final Responsive Tweaks */
         @media (max-width: 1024px) {
-            .skills-container {
-                grid-template-columns: 1fr 1fr;
-            }
+            .skills-container { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-container {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-flex {
-                flex-direction: column;
-                gap: 40px;
-            }
-
-            .contact-info {
-                text-align: center;
-            }
-
-            section {
-                padding: 60px 22px;
-            }
+            .skills-container { grid-template-columns: 1fr; }
+            .projects-container { grid-template-columns: 1fr; }
+            .contact-flex { flex-direction: column; gap: 40px; }
+            .contact-info { text-align: center; }
+            section { padding: 60px 22px; }
         }
 
         @media (max-width: 480px) {
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .hero-cta {
-                width: 100%;
-                padding: 0 20px;
-            }
+            .btn { width: 100%; text-align: center; }
+            .hero-cta { width: 100%; padding: 0 20px; }
         }
     </style>
 </head>
-
 <body>
 
     <div class="bg-gradient"></div>
@@ -575,9 +527,7 @@
     <section id="about" class="reveal">
         <h2 class="section-header">Engineer of <br>AI Ecosystems.</h2>
         <p class="about-text">
-            AI-focused Software Engineer with hands-on experience in LLM-based systems, LangGraph multi-agent workflows,
-            and full-stack development. Skilled in building production-safe AI agents, iterative reasoning pipelines,
-            and scalable applications with a strong focus on clean state management and performance optimization.
+            AI-focused Software Engineer with hands-on experience in LLM-based systems, LangGraph multi-agent workflows, and full-stack development. Skilled in building production-safe AI agents, iterative reasoning pipelines, and scalable applications with a strong focus on clean state management and performance optimization.
         </p>
     </section>
 
@@ -640,8 +590,7 @@
                 <div class="timeline-date">Oct 2024 – Jan 2025</div>
                 <div class="timeline-title">Frontend Developer Intern</div>
                 <div class="timeline-org">GrapeDawn.tech</div>
-                <p>Built production-ready web interfaces using React.js and Next.js. Collaborated in full-stack
-                    development workflows and improved UI responsiveness.</p>
+                <p>Built production-ready web interfaces using React.js and Next.js. Collaborated in full-stack development workflows and improved UI responsiveness.</p>
             </div>
         </div>
     </section>
@@ -661,8 +610,7 @@
                         <span class="tech-badge">Pandas</span>
                     </div>
                     <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--border);">
-                    <p style="color:var(--text-secondary);">An interactive web app that predicts the likelihood of heart
-                        disease using a trained Logistic Regression model.</p>
+                    <p style="color:var(--text-secondary);">An interactive web app that predicts the likelihood of heart disease using a trained Logistic Regression model.</p>
                 </div>
             </div>
             <!-- Project 2 -->
@@ -676,8 +624,7 @@
                         <span class="tech-badge">NLP</span>
                     </div>
                     <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--border);">
-                    <p style="color:var(--text-secondary);">A responsive AI-based interview platform with voice
-                        interaction and real-time feedback using NLP.</p>
+                    <p style="color:var(--text-secondary);">A responsive AI-based interview platform with voice interaction and real-time feedback using NLP.</p>
                 </div>
             </div>
             <!-- Project 3 -->
@@ -691,8 +638,7 @@
                         <span class="tech-badge">Pandas</span>
                     </div>
                     <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--border);">
-                    <p style="color:var(--text-secondary);">A web application that detects emotions in text using TF-IDF
-                        vectorization and Logistic Regression.</p>
+                    <p style="color:var(--text-secondary);">A web application that detects emotions in text using TF-IDF vectorization and Logistic Regression.</p>
                 </div>
             </div>
             <!-- Project 4 -->
@@ -706,8 +652,7 @@
                         <span class="tech-badge">Responsive</span>
                     </div>
                     <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--border);">
-                    <p style="color:var(--text-secondary);">Converted a static HTML website into a modern responsive
-                        Next.js application with improved UI and branding.</p>
+                    <p style="color:var(--text-secondary);">Converted a static HTML website into a modern responsive Next.js application with improved UI and branding.</p>
                 </div>
             </div>
             <!-- Project 5 -->
@@ -721,8 +666,7 @@
                         <span class="tech-badge">Firebase</span>
                     </div>
                     <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--border);">
-                    <p style="color:var(--text-secondary);">A coding platform featuring problem-solving challenges,
-                        authentication system, and admin dashboard.</p>
+                    <p style="color:var(--text-secondary);">A coding platform featuring problem-solving challenges, authentication system, and admin dashboard.</p>
                 </div>
             </div>
             <!-- Project 6 -->
@@ -735,8 +679,7 @@
                         <span class="tech-badge">PDF Generation</span>
                     </div>
                     <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--border);">
-                    <p style="color:var(--text-secondary);">A service reporting application with automated PDF
-                        generation and digital signature support.</p>
+                    <p style="color:var(--text-secondary);">A service reporting application with automated PDF generation and digital signature support.</p>
                 </div>
             </div>
         </div>
@@ -759,10 +702,8 @@
         <div class="contact-flex">
             <div class="contact-info">
                 <p style="font-size: 24px; font-weight: 500;">Let's build the future together.</p>
-                <p style="margin-top: 20px;">Email: <a href="mailto:contact@avinashmarkad.com"
-                        style="color:var(--accent); text-decoration: none;">contact@avinashmarkad.com</a></p>
-                <p style="margin-top: 10px;">GitHub: <a href="https://github.com/avinashmarkad"
-                        style="color:var(--accent); text-decoration: none;">github.com/avinashmarkad</a></p>
+                <p style="margin-top: 20px;">Email: <a href="mailto:contact@avinashmarkad.com" style="color:var(--accent); text-decoration: none;">contact@avinashmarkad.com</a></p>
+                <p style="margin-top: 10px;">GitHub: <a href="https://github.com/avinashmarkad" style="color:var(--accent); text-decoration: none;">github.com/avinashmarkad</a></p>
             </div>
             <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
                 <div class="input-group">
@@ -834,17 +775,32 @@
         // Visitor Counter Simulation
         async function updateVisitorCounter() {
             try {
-                const response = await fetch('visitors.json');
-                const data = await response.json();
-                let visits = data.visits || 0;
-                visits++;
-                document.getElementById('visitor-count').textContent = `Total Visitors: ${visits.toLocaleString()}`;
+                // Check if user has already visited in this session
+                const sessionKey = 'hasVisitedAvinashPortfolio';
+                let currentVisits = 0;
 
-                // Note: In a real environment with a backend, we would POST to update this.
-                // For this static demo, we just display the incremented local value.
+                // Try to get from visitors.json
+                const response = await fetch('visitors.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    currentVisits = data.visits || 0;
+                }
+
+                // If not visited in this session, increment
+                if (!sessionStorage.getItem(sessionKey)) {
+                    currentVisits++;
+                    sessionStorage.setItem(sessionKey, 'true');
+                    
+                    // In a real production app, you would send a POST request here
+                    // to your backend to update the JSON file. 
+                    // Example: fetch('/api/increment-visitors', { method: 'POST' });
+                }
+
+                document.getElementById('visitor-count').textContent = `Total Visitors: ${currentVisits.toLocaleString()}`;
             } catch (error) {
                 console.error('Error fetching visitor count:', error);
-                document.getElementById('visitor-count').textContent = `Total Visitors: 1,025`;
+                // Fallback display
+                document.getElementById('visitor-count').textContent = `Total Visitors: 1`;
             }
         }
 
@@ -876,5 +832,4 @@
         };
     </script>
 </body>
-
 </html>

@@ -466,11 +466,7 @@
             border-top: 1px solid var(--border);
         }
 
-        .visitor-counter {
-            margin-top: 20px;
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
+
 
         /* Final Responsive Tweaks */
         @media (max-width: 1024px) {
@@ -722,9 +718,6 @@
 
     <footer>
         <p>&copy; 2026 Avinash Markad. Built with &hearts; for the future.</p>
-        <div class="visitor-counter" id="visitor-count">
-            Loading visitor count...
-        </div>
     </footer>
 
     <script>
@@ -772,38 +765,6 @@
             });
         }
 
-        // Visitor Counter Simulation
-        async function updateVisitorCounter() {
-            try {
-                // Check if user has already visited in this session
-                const sessionKey = 'hasVisitedAvinashPortfolio';
-                let currentVisits = 0;
-
-                // Try to get from visitors.json
-                const response = await fetch('visitors.json');
-                if (response.ok) {
-                    const data = await response.json();
-                    currentVisits = data.visits || 0;
-                }
-
-                // If not visited in this session, increment
-                if (!sessionStorage.getItem(sessionKey)) {
-                    currentVisits++;
-                    sessionStorage.setItem(sessionKey, 'true');
-                    
-                    // In a real production app, you would send a POST request here
-                    // to your backend to update the JSON file. 
-                    // Example: fetch('/api/increment-visitors', { method: 'POST' });
-                }
-
-                document.getElementById('visitor-count').textContent = `Total Visitors: ${currentVisits.toLocaleString()}`;
-            } catch (error) {
-                console.error('Error fetching visitor count:', error);
-                // Fallback display
-                document.getElementById('visitor-count').textContent = `Total Visitors: 1`;
-            }
-        }
-
         // Mobile Menu Toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
@@ -828,7 +789,6 @@
         window.onload = () => {
             type();
             reveal();
-            updateVisitorCounter();
         };
     </script>
 </body>
